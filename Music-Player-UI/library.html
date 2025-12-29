@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmony Player - Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fas fa-music"></i>
+                <h2>Harmony</h2>
+            </div>
+            <ul class="nav-menu">
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="library.html">
+                        <i class="fas fa-compact-disc"></i>
+                        <span>Library</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="playlists.html">
+                        <i class="fas fa-list"></i>
+                        <span>Playlists</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="user-profile">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="User">
+                <div>
+                    <h4>Alex Johnson</h4>
+                    <p>Premium User</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="page-header">
+                <h1>Your Library</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search songs, artists...">
+                    </div>
+                    <button class="btn-primary">
+                        <i class="fas fa-plus"></i> Add Music
+                    </button>
+                </div>
+            </header>
+
+            <!-- Library Filters -->
+            <div class="library-filters">
+                <button class="filter-btn active">All Songs</button>
+                <button class="filter-btn">Artists</button>
+                <button class="filter-btn">Albums</button>
+                <button class="filter-btn">Recently Added</button>
+                <button class="filter-btn">Most Played</button>
+            </div>
+
+            <!-- Songs List -->
+            <div class="songs-list-container">
+                <div class="list-header">
+                    <div class="header-item">#</div>
+                    <div class="header-item">Title</div>
+                    <div class="header-item">Artist</div>
+                    <div class="header-item">Album</div>
+                    <div class="header-item">Duration</div>
+                    <div class="header-item">Actions</div>
+                </div>
+                
+                <div class="songs-list" id="songs-list">
+                    <!-- Songs will be loaded by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Artists Grid -->
+            <section class="artists-section">
+                <h3>Favorite Artists</h3>
+                <div class="artists-grid">
+                    <div class="artist-card">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Artist">
+                        <h4>The Weeknd</h4>
+                        <p>42 songs</p>
+                    </div>
+                    <div class="artist-card">
+                        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Artist">
+                        <h4>Dua Lipa</h4>
+                        <p>28 songs</p>
+                    </div>
+                    <div class="artist-card">
+                        <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Artist">
+                        <h4>Ed Sheeran</h4>
+                        <p>35 songs</p>
+                    </div>
+                    <div class="artist-card">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Artist">
+                        <h4>Taylor Swift</h4>
+                        <p>56 songs</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Player Bar -->
+    <div class="player-bar">
+        <div class="mini-player">
+            <div class="mini-song-info">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Album">
+                <div>
+                    <h4 id="mini-song-title">Blinding Lights</h4>
+                    <p id="mini-song-artist">The Weeknd</p>
+                </div>
+            </div>
+            
+            <div class="mini-controls">
+                <button class="mini-btn" id="mini-prev">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button class="mini-btn play-btn" id="mini-play">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="mini-btn" id="mini-next">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+            </div>
+            
+            <div class="mini-progress">
+                <div class="mini-progress-bar">
+                    <div class="mini-progress-fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="player.js"></script>
+</body>
+</html>
