@@ -1,36 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Player UI</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Music Player UI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: #fff;
+  }
+
+  .player {
+    width: 300px;
+    text-align: center;
+  }
+
+  .now-playing {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+
+  .cover img {
+    width: 260px;
+    height: 260px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .info {
+    margin-top: 12px;
+  }
+
+  .info h2 {
+    margin: 6px 0;
+    font-size: 20px;
+  }
+
+  .info p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  .controls {
+    margin-top: 18px;
+  }
+
+  .controls button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 26px;
+    margin: 0 14px;
+    cursor: pointer;
+  }
+
+  .controls button:active {
+    transform: scale(0.9);
+  }
+
+  .progress-container {
+    margin-top: 15px;
+    width: 100%;
+    height: 4px;
+    background: #333;
+    cursor: pointer;
+  }
+
+  .progress {
+    height: 100%;
+    width: 0%;
+    background: #1db954;
+  }
+</style>
 </head>
+
 <body>
 
-<div class="player-container">
-  <div class="now-playing-label">Now Playing</div>
-  
-  <div class="album-art">
-    <img id="albumImage" src="music 1.jpg" alt="Album Cover">
+<div class="player">
+  <div class="now-playing">NOW PLAYING</div>
+
+  <div class="cover">
+    <img src="music 1.jpg" alt="Album Art">
   </div>
 
-  <div class="track-info">
-    <h2 id="trackTitle">Maan Kuttiye</h2>
-    <p id="trackArtist">S. A. Rajkumar,Hariharan & Sujatha
-</p>
+  <div class="info">
+    <h2>Maan Kuttiye</h2>
+    <p>S. A. Rajkumar,Hariharan & Sujatha</p>
+  </div>
+
+  <div class="progress-container" onclick="setProgress(event)">
+    <div class="progress" id="progress"></div>
   </div>
 
   <div class="controls">
-    <button id="prevBtn">⏮️</button>
-    <button id="playBtn">▶️</button>
-    <button id="nextBtn">⏭️</button>
+    <button onclick="prevSong()">⏮</button>
+    <button onclick="togglePlay()" id="playBtn">▶</button>
+    <button onclick="nextSong()">⏭</button>
   </div>
 
-  <audio id="audioPlayer" src="song.mp3"></audio>
+  <audio id="audio">
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
 </div>
 
-<script src="script.js"></script>
+<script>
+  const audio = document.getElementById("audio");
+  const playBtn = document.getElementById("playBtn");
+  const progress = document.getElementById("progress");
+
+  let isPlaying = false;
+
+  function togglePlay() {
+    if (isPlaying) {
+      audio.pause();
+      playBtn.textContent = "▶";
+    } else {
+      audio.play();
+      playBtn.textContent = "⏸";
+    }
+    isPlaying = !isPlaying;
+  }
+
+  audio.addEventListener("timeupdate", () => {
+    const percent = (audio.currentTime / audio.duration) * 100;
+    progress.style.width = percent + "%";
+  });
+
+  function setProgress(e) {
+    const width = e.currentTarget.clientWidth;
+    const clickX = e.offsetX;
+    audio.currentTime = (clickX / width) * audio.duration;
+  }
+
+  function prevSong() {
+    audio.currentTime = 0;
+  }
+
+  function nextSong() {
+    audio.currentTime = 0;
+    audio.play();
+    playBtn.textContent = "⏸";
+    isPlaying = true;
+  }
+</script>
 
 </body>
 </html>
