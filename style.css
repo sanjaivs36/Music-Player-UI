@@ -1,0 +1,58 @@
+body {
+  background: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.player-container {
+  text-align: center;
+  width: 300px;
+}
+
+.now-playing-label {
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.album-art img {
+  width: 260px;
+  height: 260px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.track-info {
+  margin: 12px 0;
+}
+
+.track-info h2 {
+  margin: 6px 0;
+  font-size: 20px;
+}
+
+.track-info p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  margin: 0 12px;
+  cursor: pointer;
+  transition: transform .1s;
+}
+
+.controls button:active {
+  transform: scale(0.9);
+}

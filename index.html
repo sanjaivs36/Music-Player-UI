@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="player-container">
+  <div class="now-playing-label">Now Playing</div>
+  
+  <div class="album-art">
+    <img id="albumImage" src="music 1.jpg" alt="Album Cover">
+  </div>
+
+  <div class="track-info">
+    <h2 id="trackTitle">Maan Kuttiye</h2>
+    <p id="trackArtist">S. A. Rajkumar,Hariharan & Sujatha
+</p>
+  </div>
+
+  <div class="controls">
+    <button id="prevBtn">⏮️</button>
+    <button id="playBtn">▶️</button>
+    <button id="nextBtn">⏭️</button>
+  </div>
+
+  <audio id="audioPlayer" src="song.mp3"></audio>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
